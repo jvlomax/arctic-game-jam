@@ -60,24 +60,20 @@ user_manager.init_app(app)
 @app.route("/ajax/register", methods=["POST"])
 def register_user():
     if request.method == "POST":
-
-
         name = request.form["nameInput"]
-
         email = request.form["emailInput"]
-
         age = request.form["ageInput"]
-
         info = request.form["textarea"]
-
         sex = request.form["sex"]
+        occupation = request.form["occupationInput"]
+
         p = Person.query.filter_by(email=email).all()
         if p:
             return "400"
         p = Person.query.filter_by(name=name).all()
         if p:
             return "400"
-        p = Person(name, email, age, info, sex)
+        p = Person(name, email, age, info, sex, occupation)
         db.session.add(p)
         send_registerd_email(email)
         db.session.commit()
