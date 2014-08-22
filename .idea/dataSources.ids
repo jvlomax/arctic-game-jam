@@ -11,6 +11,7 @@
       <column name="age" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
       <column name="info" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="sex" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="occupation" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
     </table>
     <table name="user" schema="" catalog="" type="TABLE">

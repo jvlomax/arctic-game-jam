@@ -7,18 +7,10 @@ from wtforms.validators import ValidationError
 from flask.ext.user import current_user, login_required, UserManager, UserMixin, SQLAlchemyAdapter
 from flask.ext.mail import Mail, Message
 from decorators import async
+import config
+
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
-app.config["SECRET_KEY"] = "Super secret key no one will find"
-app.config["CSRF_ENABLED"] = True
-app.config["USER_ENABLE_USERNAME"] = True
-app.config["USER_ENABLE_EMAIL"] = False
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 
-app.config["MAIL_PASSWORD"] =
-app.config["DEFAULT_MAIL_SENDER"] = '"Arctic Game Jam Team" <post@artcicgamejam.com>'
+app.config.from_object(config)
 db = SQLAlchemy(app)
 babel = Babel(app)
 mail = Mail(app)
@@ -47,13 +39,15 @@ class Person(db.Model):
     age = db.Column(db.Integer)
     info = db.Column(db.Text)
     sex = db.Column(db.String)
+    occupation = db.Column(db.String)
 
-    def __init__(self, name, email, age, info, sex):
+    def __init__(self, name, email, age, info, sex, occupation):
         self.name = name
         self.email = email
         self.age = age
         self.info = info
         self.sex = sex
+        self.occupation = occupation
 
     def __repr__(self):
         return "<Person %s>" % self.name
@@ -85,12 +79,8 @@ def register_user():
             return "400"
         p = Person(name, email, age, info, sex)
         db.session.add(p)
-
-
         send_registerd_email(email)
-
-
-        #db.session.commit()
+        db.session.commit()
         return "200"
 
 @app.route("/index.html")
@@ -113,6 +103,9 @@ def show_rules():
 def show_register():
     return render_template("register.html")
 
+
+@app.route("/login")
+@app.route("/login.html")
 @app.route("/stats.html")
 @app.route("/stats")
 @login_required
@@ -123,12 +116,6 @@ def stats():
     return render_template("stats.html", participants=participants, emails=emails)
 
 
-@app.route("/logout")
-@app.route("/logout.html")
-@app.route("/login")
-@app.route("/login.html")
-def login():
-    return render_template(url_for("user.login"))
 
 def send_registerd_email(address):
     msg = Message("Welcome to Arctic Game Jam 2014", sender=("Arctic Game Jam team", "post@arcticgamejam.com"))
