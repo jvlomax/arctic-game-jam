@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block pre_scripts %}
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script type="text/javascript">
+     var map;
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(69.645716, 18.951037);
+    var mapOptions = {
+        zoom: 13,
+        center: myLatlng
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: "Flow: Co-Working and Innovation Space"
+    });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+{% endblock %}
+{% block content %}
+
+
+<div class="container-fluid my-style">
+    <div class="col-md-3">
+        <img src="../static/img/Arctic_game_jam_450.png" alt="Yummy yummy jam" class="img-responsive">
+        <p class="visible-md visible-lg"> If you have any questions, don't hesitate to <a href="mailto:post@arcticgamejam.com?subject=Arctic Game Jam">Send us an email</a></p>
+    </div>
+
+
+        <div class="col-md-6" >
+       <h1 class="my-heading">Arctic Game Jam 2014</h1>
+        Calling all game enthusiasts and creative people, come join us at the inaugural Arctic Game Jam event in Tromsø on the 12th - 14th of September!<br>
+<br>
+<p>Jointly organized by Tromsø’s own Bedriftsnettverk for spill & interaktiv produksjoner and Tromsøstudentenes dataforening -
+this is an awesome opportunity for professionals and enthusiasts alike to network and take on an active role in the fast-growing development scene in Northern Norway.</p>
+<p><br>
+The Arctic Game Jam 2014 will be held at Flow: Co-Working and Innovation Space.
+The aim is for participants to work on developing a game idea based around a theme over a 48-hour period.  We’re expecting nothing less than a marathon session of devious designs and courageous coding!
+</p>
+
+<hline></hline>
+<br><br>
+<h3 class="my-heading">Who can join?</h3>
+<p>The Arctic Game Jam is open to anyone with an interest in developing games/interactive concepts meaning that participants with programming skills are particularly relevant.</p>
+
+<p>Making good games often take a variety of skillsets so we welcome artists,
+    musicians and writers. You can always team up with programmers you meet at the event,
+    find helpful tools that can help you flesh out your ideas, or consult with the various professional game developers at the event!</p>
+
+
+
+        </div>
+
+
+<div class="col-md-3">
+     <div class="visible-md visible-lg">
+                    <h4 class="my-heading">What else is happening at Arctic Game Jam 2014?</h4>
+<ul style="font-size: 12px;">
+<li>Seeing as how it’s the first time we’re getting together, we’ve prepared some extra side activities to commemorate the occasion -</p></li>
+
+<li><p>Friday 12th September 7pm - 8pm: Pizza time and theme reveal at Arctic Game Jam 2014</p></li>
+
+<li><p>Friday, 12th September 8pm -9pm : Game Development Boot Camp by Kim Daniel Arthur</p></li>
+
+<li><p>Saturday, 13th September 1pm - 3pm: Open Consultation/Troubleshooting - Participants can submit questions and  seek consultation with professional members of Tromsø’s Bedriftsnettverk for Spill&Interaktiv Produksjoner  to ramp up their demo development.</p></li>
+
+<li><p>Saturday 13th September 6pm - 7pm: Pizza Time II - Free food for all registered participants</p></li>
+
+<li><p>Sunday 14th September 12pm -2pm:  Commit! - All participants are meant to submit their game demo which will then be featured in respective order</p></li>
+
+<li><p>Sunday 14th September 3pm: Results of Arctic Game Jam - Demos will be appraised by our select panel and the winning entry for the Arctic Game Jam 2014 will be judged and prizes will be awarded.</p></li>
+</ul>
+        </div>
+    {% if available_spots < 20 %}<h3>Number of spots still available: {{ available_spots }}/40 </h3>{% endif %}
+    <h2>Location:</h2>
+    <div style="height: 100%;width=100%;padding: 0px; margin: 0px;">
+        <div id="map-canvas">
+    </div>
+
+</div>
+    <p class="visible-xs visible-sm"> If you have any questions, don't hesitate to <a href="mailto:post@arcticgamejam.com?subject=Arctic Game Jam">Send us an email</a></p>
+
+
+
+
+    </div>
+
+    </div>
+
+{% endblock %}

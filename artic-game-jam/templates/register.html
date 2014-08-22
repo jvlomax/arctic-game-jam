@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-style">
+
+    <div id="alert-success-placeholder" style="display: none;">
+        <div class="alert alert-success alert-dismissable" role="alert">
+
+         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>Congratulation, you have registered for the Arctic Game Jam 2014</div>
+    </div>
+    <div id="alert-error-placeholder" style="display: none;">
+        <div class="alert alert-warning alert-dismissable" role="alert">
+
+         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>There was an error with the registration (have you already registered?)</div>
+    </div>
+<form id="registerForm" class="form-horizontal" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Register</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nameInput">Name</label>
+  <div class="col-md-4">
+  <input id="nameInput" name="nameInput" type="text" placeholder="" class="form-control input-md" required="">
+  <span class="help-block">*Required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailInput">Email</label>
+  <div class="col-md-4">
+  <input id="emailInput" name="emailInput" type="text" placeholder="" class="form-control input-md" required="">
+  <span class="help-block">*Required</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailInput">Age</label>
+  <div class="col-md-4">
+  <input id="ageInput" name="ageInput" type="text" placeholder="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sex">Sex</label>
+  <div class="col-md-4">
+    <select id="sex" name="sex" class="form-control">
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="occupationInput">Occupation</label>
+  <div class="col-md-4">
+  <input id="occupationInput" name="occupationInput" type="text" placeholder="" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea"></label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="textarea" name="textarea">Write some info about yourself</textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitButton"></label>
+  <div class="col-md-4">
+    <button id="submitButton" type="button" name="submitButton" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+
+</div>
+{% endblock %}
+{% block post_scripts %}
+<script>
+$('#textarea').focus(function() {
+    if( $(this).val() == "Write some info about yourself")
+        $(this).val('');
+});
+
+$("#submitButton").click(function(){
+
+
+    $.post("ajax/register", $("form#registerForm").serialize(), function(data){
+        if(data === "200"){
+              $("#alert-success-placeholder").fadeIn("fast")
+        }else{
+              $("#alert-error-placeholder").fadeIn("fast")
+        }
+
+    });
+});
+</script>
+    {% endblock %}

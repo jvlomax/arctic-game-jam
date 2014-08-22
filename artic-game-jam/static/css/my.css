@@ -1,0 +1,187 @@
+/*
+.navbar-default {
+	background-color: #9b59b6;
+	border-color: #8e44ad;
+}
+.navbar-default .navbar-brand {
+	color: #000000;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #484848;
+}
+.navbar-default .navbar-text {
+	color: #000000;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #000000;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #484848;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #484848;
+	background-image: -webkit-linear-gradient(top, #ae8a20 0%, #ebc51f 100%);
+  background-image:      -o-linear-gradient(top, #ae8a20 0%, #ebc51f 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ae8a20), to(#ebc51f));
+  background-image:         linear-gradient(to bottom, #ae8a20 0%, #ebc51f 100%);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #484848;
+	background-image: -webkit-linear-gradient(top, #dcb61f 0%, #ebc51f 100%);
+    background-image:      -o-linear-gradient(top, #dcb61f 0%, #ebc51f 100%);
+     background-image: -webkit-gradient(linear, left top, left bottom, from(#dcb61f), to(#ebc51f));
+    background-image:         linear-gradient(to bottom, #dcb61f 0%, #ebc51f 100%);
+}
+.navbar-default .navbar-toggle {
+	border-color: #8e44ad;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #8e44ad;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #000000;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-color: #000000;
+}
+.navbar-default .navbar-link {
+	color: #000000;
+}
+.navbar-default .navbar-link:hover {
+	color: #484848;
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #000000;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #484848;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #484848;
+		background-color: #8e44ad;
+	}
+}
+/*
+<!-- Jumbatron narrow stuff -->
+/* Space out content a bit */
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    font-size: 18px;
+      line-height: 1.6;
+      /*width: 768;*/
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+@font-face {
+    font-family: gillsans;
+    src: url(../fonts/gillsans-ultrabold.ttf);
+    url(../fonts/gillsans-ultrabold.ttf)
+
+}
+
+.my-style{
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: Roboto;
+
+}
+
+
+
+  html, body, #map-canvas {
+        margin-top: 60px;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+  #map-canvas {
+      width: 90%;
+      height: 250px;
+  }
+
+.my-heading{
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-weight: bolder;
+}
+
+.footer-image{
+    width: 19%;
+    position: relative;
+    margin-left:  auto;
+    margin-right: auto;
+
+
+}

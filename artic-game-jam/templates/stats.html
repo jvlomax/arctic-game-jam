@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+        {% block content %}
+
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">Participants</div>
+                <div class="panel-body">
+                    <p> These are the all the registered participants of the Arctic jam 2014.
+                    </p>
+                </div>
+                <table class="table">
+                    <thead><tr>
+                        <th>#</td>
+                        <th>Name</td>
+                        <th>Email</td>
+                        <th>Gender</td>
+                        <th>Age</td>
+                        <th>Occupation</td>
+                        <th>About</th>
+                    </tr>
+                        </thead>
+                    <tbody>
+                    {% for person in participants %}
+                    <tr id="{{ person.id }}">
+                        <td>{{ person.id }}</td>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.email }}</td>
+                        <td>{{ person.sex }}</td>
+                        <td>{{ person.age }}</td>
+                        <td>{{ person.occupation }}</td>
+                        <td>{{ person.info }}</td>
+                        <td>X</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a href="mailto:{% for email in emails %}{{ email }},{% endfor %}?subject=Arctic Game Jam 2014">Email all participants</a>
+        </div>
+
+
+
+
+        {% endblock %}
+
